@@ -134,7 +134,8 @@ const config = {
     publicPath: '',
     filename: `[name].js`,
     chunkFilename: `[id].chunk.js`,
-    path: BUILD_DIR + '/' + DIST_DIR
+    path: BUILD_DIR + '/' + DIST_DIR,
+    libraryTarget: 'umd'
   },
   cache: true,
   debug: NODE_ENV === 'production' ? false : true,

@@ -28,19 +28,23 @@ let demoTree = [
     children: [
       {
         id: 31,
-        text: '测试子menu31'
+        text: '测试子menu31',
+        parent: 3
       },
       {
         id: 32,
         text: '测试子menu32',
+        parent: 3,
         hide: false,
         children: [
           {
             id: 321,
+            parent: 32,
             text: '测试子menu321'
           },
           {
             id: 322,
+            parent: 32,
             text: '测试子menu322',
             active: true
           }
@@ -83,14 +87,15 @@ describe('tree', () => {
   it('traverseUp', () => {
     let result = [];
     tree.traverseUp({
-      id: 32,
-      text: '测试子menu12',
-      parent: 2
+      id: 322,
+      parent: 32,
+      text: '测试子menu322',
+      active: true
     }, node => {
       result.push(node.id)
     });
-    expect(result.length).to.be.equal(1);
-    expect(result[0]).to.be.equal(2);
+    expect(result.length).to.be.equal(2);
+    expect(result[0]).to.be.equal(32);
   });
 });
 

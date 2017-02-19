@@ -1,6 +1,6 @@
 {
   "name": "js-tree-structure",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "javascript tree data structure",
   "scripts": {
     "start": "npm run webpack",
