@@ -66,10 +66,10 @@ export default class Tree {
   getNodeById(id) {
     let targetNode;
     this.traverse(node => {
-      if(node[this.idAttr] = id) {
+      if(node[this.idAttr] === id) {
         targetNode = node;
+        return false;
       }
-      return false;
     });
 
     return targetNode;

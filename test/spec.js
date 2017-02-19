@@ -50,11 +50,18 @@ let demoTree = [
   }
 ];
 
-let tree = new Tree(demoTree[1], {
+let config = {
   childrenAttr: 'children',
   idAttr: 'id',
   parentAttr: 'parent'
-});
+};
+
+let data = {
+  id: '_auto_root_',
+  children: demoTree
+};
+
+let tree = new Tree(data, config);
 
 describe('tree', () => {
   it('traverseDF', () => {
@@ -62,21 +69,21 @@ describe('tree', () => {
     tree.traverseDF(node => {
       result.push(node.id)
     });
-    expect(result.length).to.be.equal(3);
-    expect(result[0]).to.be.equal(2);
-    expect(result[1]).to.be.equal(21);
-    expect(result[2]).to.be.equal(22);
+    expect(result.length).to.be.equal(10);
+    expect(result[1]).to.be.equal(1);
+    expect(result[2]).to.be.equal(2);
+    expect(result[3]).to.be.equal(21);
   });
 
   it('getNodeById', () => {
-    let targerNode = tree.getNodeById(2);
-    expect(targerNode.text).to.be.equal('测试父menu2');
+    let targerNode = tree.getNodeById(32);
+    expect(targerNode.text).to.be.equal('测试子menu32');
   });
 
   it('traverseUp', () => {
     let result = [];
     tree.traverseUp({
-      id: 22,
+      id: 32,
       text: '测试子menu12',
       parent: 2
     }, node => {

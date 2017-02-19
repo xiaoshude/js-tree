@@ -9,3 +9,5 @@ export {
   Tree,
   ArrayTree
 }
+
+export default Tree;
