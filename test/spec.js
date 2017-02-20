@@ -96,6 +96,7 @@ describe('tree', () => {
     });
     expect(result.length).to.be.equal(2);
     expect(result[0]).to.be.equal(32);
+    expect(result[1]).to.be.equal(3);
   });
 });
 
