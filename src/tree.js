@@ -48,7 +48,7 @@ export default class Tree {
     if (this.parentAttr) {
 
       let recurse = node => {
-        if (node[this.parentAttr]) {
+        if (node && node[this.parentAttr]) {
           let parentNode = this.getNodeById(node[this.parentAttr]);
           callback(parentNode);
           recurse(parentNode);
